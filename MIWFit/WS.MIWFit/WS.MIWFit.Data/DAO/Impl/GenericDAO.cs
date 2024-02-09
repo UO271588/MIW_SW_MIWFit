@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using WS.MIWFit.Data;
 
 namespace WS.Unit06.Example2.Data.DAO
 {
