@@ -1,6 +1,21 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+using WS.MIWFit.Data;
 
-app.MapGet("/", () => "Hello World!");
-
-app.Run();
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        var host = new WebHostBuilder()
+            .UseKestrel(x => x.AllowSynchronousIO = true)
+            .UseUrls("http://*:9090")
+            .UseContentRoot(Directory.GetCurrentDirectory())
+            .UseStartup<Startup>()
+            .ConfigureLogging(x =>
+            {
+                x.AddDebug();
+                x.AddConsole();
+            })
+            .Build();
+        
+        host.Run();
+    }
+}

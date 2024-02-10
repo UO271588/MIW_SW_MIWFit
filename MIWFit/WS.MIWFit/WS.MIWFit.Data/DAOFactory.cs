@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WS.Unit06.Example2.Data.DAO;
-using WS.Unit06.Example2.Data.DAO.Impl;
+using WS.MIWFit.Data;
+using WS.MIWFit.Data.DAO;
+using WS.MIWFit.Data.DAO.Impl;
 
 namespace WS.Unit06.Example2.Data
 {
@@ -16,12 +17,17 @@ namespace WS.Unit06.Example2.Data
             _context = new DataContext();
         }
 
-        public IStatisticsDAO StatisticsDAO
+        public IUserDAO UserDAO
         {
-            get { return new StatisticsDAO(_context); }
+            get { return new UserDAO(_context); }
         }
 
-        
+        public IFitStatsDAO FitStatsDAO
+        {
+            get { return new FitStatsDAO(_context); }
+        }
+
+
         public void Dispose() { _context.Dispose(); }
     }
 }

@@ -7,6 +7,8 @@
         public long Height { get; set; }
         public long IMC { get; set; }
         public string Activity { get; set; } = string.Empty;
-        public User User { get; set; } = null;
+        public DateTime Date { get; set; }
+        public User User { get; set; } = new User();
+
     }
 }

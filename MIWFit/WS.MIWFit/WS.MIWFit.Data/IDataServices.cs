@@ -1,8 +1,10 @@
-﻿using System.ServiceModel;
+﻿using System.Runtime.CompilerServices;
+using System.ServiceModel;
 using WS.MIWFit.Data.Model;
 
 namespace WS.MIWFit.Data
 {
+    [ServiceContract(Namespace = "http://ws.miwfit/data/")]
     public interface IDataServices
     {
 
@@ -10,7 +12,7 @@ namespace WS.MIWFit.Data
         [OperationContract]
         public User GetUser(String username);
         [OperationContract]
-        public void CreateUser(String username);
+        public void CreateUser(String username, String password, String genre, String mail);
 
 
         //OPERACIONES FIT STATS
