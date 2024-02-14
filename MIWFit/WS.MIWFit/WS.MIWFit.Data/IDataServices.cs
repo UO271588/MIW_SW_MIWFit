@@ -19,6 +19,6 @@ namespace WS.MIWFit.Data
         [OperationContract]
         public FitStats[] GetUserFitStats(String username);
         [OperationContract]
-        public void CreateUserFitStats(String username);
+        public void CreateUserFitStats(FitStats fitStats);
     }
 }

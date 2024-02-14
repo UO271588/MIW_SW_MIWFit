@@ -5,5 +5,6 @@ namespace WS.MIWFit.Data.DAO
 {
     public interface IFitStatsDAO : IGenericDAO<FitStats>
     {
+        public IEnumerable<FitStats> findByUsername(string username);
     }
 }
