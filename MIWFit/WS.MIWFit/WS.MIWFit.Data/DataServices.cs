@@ -20,11 +20,22 @@ namespace WS.MIWFit.Data
             }
         }
 
-        public void CreateUserFitStats(String username)
+        public void CreateUserFitStats(FitStats fitStats)
         {
             using (DAOFactory factory = new DAOFactory())
             {
+                var user = factory.UserDAO.All().FirstOrDefault(u => u.Username == fitStats.User.Username);
 
+                if (user == null)
+                {
+                    throw new FaultException(new FaultReason("User " + fitStats.User.Username + " not found"), new FaultCode("404"), "");
+                }
+
+                
+                fitStats.Date = DateTime.Now;
+                user.FitStats.Add(fitStats);
+
+                var result = factory.UserDAO.Update(user);
             }
         }
 
@@ -42,7 +53,9 @@ namespace WS.MIWFit.Data
         {
             using (DAOFactory factory = new DAOFactory())
             {
-                return factory.FitStatsDAO.All().Where(s => s.User.Username == username).ToArray();
+                FitStats[] fitStats = factory.FitStatsDAO.findByUsername(username).ToArray();
+
+                return fitStats;
             }
         }
     }

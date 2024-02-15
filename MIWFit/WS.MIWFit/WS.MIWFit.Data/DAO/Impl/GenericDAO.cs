@@ -35,7 +35,8 @@ namespace WS.Unit06.Example2.Data.DAO
         {
             DbSet.Attach(t);
             Context.Entry(t).State = EntityState.Modified;
-            return Context.SaveChanges() != 0;
+            var result = Context.SaveChanges();
+            return result!=0;
         }
 
         public virtual T Find(int id)
