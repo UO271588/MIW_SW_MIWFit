@@ -1,17 +1,23 @@
 package es.uniovi.miw.ws.calculadoraimc.calculadoraimc.webservices;
 
+import es.uniovi.miw.ws.calculadoraimc.calculadoraimc.excepciones.InvalidDataException;
 import es.uniovi.miw.ws.calculadoraimc.calculadoraimc.model.ResultadoIMC;
 import jakarta.jws.WebService;
 
 @WebService
 public class CalculatorIMC implements ICalculatorIMC{
     @Override
-    public ResultadoIMC calcularIMC(double peso, double altura, String sexo, String actividad) {
+    public ResultadoIMC calcularIMC(double peso, double altura, String sexo, String actividad) throws InvalidDataException {
+
         ResultadoIMC resultadoIMC = new ResultadoIMC();
         resultadoIMC.setPeso(peso);
         resultadoIMC.setAltura(altura);
         resultadoIMC.setSexo(sexo);
         resultadoIMC.setActividad(actividad);
+
+        if(!validarDatos(resultadoIMC)){
+            throw new InvalidDataException(resultadoIMC);
+        }
 
         altura /= 100; //Dividimos para usar la altura en metros
         double imc = (peso) / (altura * altura);
@@ -33,6 +39,18 @@ public class CalculatorIMC implements ICalculatorIMC{
         resultadoIMC.setDeficit(caloriasDeficit);
 
         return resultadoIMC;
+    }
+
+    private boolean validarDatos(ResultadoIMC resultadoIMC){
+        if(resultadoIMC.getPeso() <= 0)
+            return false;
+        if(resultadoIMC.getAltura() <= 0)
+            return false;
+        if( resultadoIMC.getSexo() == null || resultadoIMC.getSexo().isBlank() || resultadoIMC.getSexo().isEmpty())
+            return false;
+        if( resultadoIMC.getActividad() == null || resultadoIMC.getActividad().isBlank() || resultadoIMC.getActividad().isEmpty())
+            return false;
+        return true;
     }
 
     private double obtenerFactorActividad(String actividad) {

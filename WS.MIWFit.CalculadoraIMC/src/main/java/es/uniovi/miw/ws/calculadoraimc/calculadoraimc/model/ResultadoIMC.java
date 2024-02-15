@@ -99,4 +99,17 @@ public class ResultadoIMC implements Serializable {
     public void setDeficit(double deficit) {
         this.deficit = deficit;
     }
+
+    public String getErrorMessage(){
+        String message = "InvalidDataException - These Arguments are invalid:[";
+        if(getPeso() <= 0)
+            message += " peso ";
+        if(getAltura() <= 0)
+            message += " altura ";
+        if(getSexo() == null || getSexo().isBlank() || getSexo().isEmpty())
+            message += " sexo ";
+        if(getActividad() == null || getActividad().isBlank() || getActividad().isEmpty())
+            message += " actividad ";
+        return message + "]";
+    }
 }
