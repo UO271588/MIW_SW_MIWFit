@@ -5,6 +5,10 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WS.MIWFit.Data", "WS.MIWFit.Data\WS.MIWFit.Data.csproj", "{4924BCD2-F834-4FF8-96EA-D37F4F855DF9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WS.MIWFit.Security", "WS.MIWFit.Security\WS.MIWFit.Security.csproj", "{7A2A6146-11C0-4825-9701-72DDC92E9BF1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WS.MIWFit.Application", "WS.MIWFit.Application\WS.MIWFit.Application.csproj", "{A2A156FA-5CE5-4E5E-899B-9A8457B874F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{4924BCD2-F834-4FF8-96EA-D37F4F855DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4924BCD2-F834-4FF8-96EA-D37F4F855DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4924BCD2-F834-4FF8-96EA-D37F4F855DF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A2A6146-11C0-4825-9701-72DDC92E9BF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A2A6146-11C0-4825-9701-72DDC92E9BF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A2A6146-11C0-4825-9701-72DDC92E9BF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A2A6146-11C0-4825-9701-72DDC92E9BF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2A156FA-5CE5-4E5E-899B-9A8457B874F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2A156FA-5CE5-4E5E-899B-9A8457B874F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2A156FA-5CE5-4E5E-899B-9A8457B874F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2A156FA-5CE5-4E5E-899B-9A8457B874F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
