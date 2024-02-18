@@ -1,0 +1,13 @@
+﻿namespace WS.MIWFit.Application.Models
+{
+    public class BasicInfo
+    {
+        public string username { get; set; }
+        public double peso { get; set; }
+        public double altura { get; set; }
+        public string sexo { get; set; }
+
+        public string actividad { get; set; }
+
+    }
+}
