@@ -2,7 +2,8 @@ package es.uniovi.miw.ws.miwfit.calculadoraimc.model;
 
 import java.io.Serializable;
 
-public class ResultadoIMC implements Serializable {
+public class
+ResultadoIMC implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private double peso;

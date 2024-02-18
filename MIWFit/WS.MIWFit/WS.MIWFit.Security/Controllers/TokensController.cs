@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Net.Mime;
 using WS.MIWFit.DataWS;
 using WS.Unit10.Task2.Security.Utils;
 
@@ -36,14 +37,16 @@ namespace WS.Unit10.Task2.Security.Controllers
 
         // POST: api/Tokens
         [HttpPost]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [Produces(MediaTypeNames.Application.Json)]
         public IActionResult Post([FromBody] dynamic tokenRequest)
         {
             try
             {
                 var username = JsonConvert.DeserializeObject<dynamic>(
-                                          tokenRequest.ToString()).Username.ToString();
+                                          tokenRequest.ToString()).username.ToString();
                 var password = JsonConvert.DeserializeObject<dynamic>(
-                                          tokenRequest.ToString()).Password.ToString();
+                                          tokenRequest.ToString()).password.ToString();
                 var data = new DataServicesClient();
                 User user = data.GetUserAsync(username).Result;
                 if(user.Username.Length <= 0) 
