@@ -26,10 +26,11 @@ namespace WS.MIWFit.Application.Controllers
         [HttpGet("{user}")]
         public async Task<ActionResult<IEnumerable<WSClient.DataWS.FitStats>>> GetFitStats([FromRoute] String user)
         {
-
+            /**
             var token = Request.Headers["token"];
             if (String.IsNullOrEmpty(token) || !ValidateToken(token))
                 return Unauthorized();
+            */
 
             DataServicesClient dataClient = new DataServicesClient();
 
@@ -44,10 +45,11 @@ namespace WS.MIWFit.Application.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         public async Task<ActionResult<WSClient.CalculadoraIMCWS.resultadoIMC>> CreateFitStats([FromBody] BasicInfo basicInfo  )
         {
-
+            /**
             var token = Request.Headers["token"];
             if (String.IsNullOrEmpty(token) || !ValidateToken(token))
                 return Unauthorized();
+            */
 
             CalculatorIMCClient calculatorClient = new CalculatorIMCClient();
 
