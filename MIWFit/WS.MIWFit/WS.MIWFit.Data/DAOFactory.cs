@@ -6,7 +6,7 @@ using WS.MIWFit.Data;
 using WS.MIWFit.Data.DAO;
 using WS.MIWFit.Data.DAO.Impl;
 
-namespace WS.Unit06.Example2.Data
+namespace WS.MIWFit.Data
 {
     public class DAOFactory : IDisposable
     {

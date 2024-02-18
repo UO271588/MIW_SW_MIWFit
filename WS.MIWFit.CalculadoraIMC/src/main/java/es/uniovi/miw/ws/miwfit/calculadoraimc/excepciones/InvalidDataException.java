@@ -1,6 +1,6 @@
-package es.uniovi.miw.ws.calculadoraimc.calculadoraimc.excepciones;
+package es.uniovi.miw.ws.miwfit.calculadoraimc.excepciones;
 
-import es.uniovi.miw.ws.calculadoraimc.calculadoraimc.model.ResultadoIMC;
+import es.uniovi.miw.ws.miwfit.calculadoraimc.model.ResultadoIMC;
 import jakarta.xml.ws.WebFault;
 
 @WebFault

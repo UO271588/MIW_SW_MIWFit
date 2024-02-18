@@ -1,4 +1,4 @@
-package es.uniovi.miw.ws.calculadoraimc.calculadoraimc.model;
+package es.uniovi.miw.ws.miwfit.calculadoraimc.model;
 
 import java.io.Serializable;
 

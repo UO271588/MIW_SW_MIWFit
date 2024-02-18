@@ -1,10 +1,12 @@
 package es.uniovi.miw.ws.miwfit.foodapi.webservices;
 
+import es.uniovi.miw.ws.miwfit.foodapi.excepciones.CaloriesMustBePositiveException;
 import es.uniovi.miw.ws.miwfit.foodapi.model.Food;
+import jakarta.jws.WebService;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@WebService
 public class FoodProvider implements IFoodProvider{
 
     private List<Food> foods;
@@ -31,7 +33,7 @@ public class FoodProvider implements IFoodProvider{
 
 
     @Override
-    public List<Food> getFood(double calories) {
+    public List<Food> getFood(double calories) throws CaloriesMustBePositiveException {
 
         return foods;
     }

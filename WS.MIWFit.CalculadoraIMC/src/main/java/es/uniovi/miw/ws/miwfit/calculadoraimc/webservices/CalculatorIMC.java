@@ -1,7 +1,7 @@
-package es.uniovi.miw.ws.calculadoraimc.calculadoraimc.webservices;
+package es.uniovi.miw.ws.miwfit.calculadoraimc.webservices;
 
-import es.uniovi.miw.ws.calculadoraimc.calculadoraimc.excepciones.InvalidDataException;
-import es.uniovi.miw.ws.calculadoraimc.calculadoraimc.model.ResultadoIMC;
+import es.uniovi.miw.ws.miwfit.calculadoraimc.excepciones.InvalidDataException;
+import es.uniovi.miw.ws.miwfit.calculadoraimc.model.ResultadoIMC;
 import jakarta.jws.WebService;
 
 @WebService

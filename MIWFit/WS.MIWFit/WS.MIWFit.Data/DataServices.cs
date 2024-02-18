@@ -1,6 +1,6 @@
 ﻿using System.ServiceModel;
 using WS.MIWFit.Data.Model;
-using WS.Unit06.Example2.Data;
+using WS.MIWFit.Data;
 
 namespace WS.MIWFit.Data
 {
