@@ -17,7 +17,7 @@ namespace WS.MIWFit.Web.Controllers
         public async Task<IActionResult> FitStatsList(string user)
         {
             var client = new RestClient(_configuration.GetValue<string>("WebSettings:AppEndPoint"));
-            var request = new RestRequest("/login", Method.Post);
+            var request = new RestRequest("/fitStats/{user}", Method.Get);
             request.RequestFormat = DataFormat.Json;
             request.AddParameter("user", user, ParameterType.UrlSegment);
             var response = await client.ExecuteAsync<List<FitStats>>(request);

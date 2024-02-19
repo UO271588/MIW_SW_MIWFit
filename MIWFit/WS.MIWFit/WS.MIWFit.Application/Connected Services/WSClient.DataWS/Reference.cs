@@ -117,17 +117,23 @@ namespace WSClient.DataWS
         
         private string ActivityField;
         
+        private double CaloriesField;
+        
         private System.DateTime DateField;
         
-        private long HeightField;
+        private double DeficitField;
         
-        private long IMCField;
+        private double HeightField;
         
         private int IdField;
         
+        private double ImcField;
+        
+        private double SuperavitField;
+        
         private WSClient.DataWS.User UserField;
         
-        private long WeightField;
+        private double WeightField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string Activity
@@ -139,6 +145,19 @@ namespace WSClient.DataWS
             set
             {
                 this.ActivityField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Calories
+        {
+            get
+            {
+                return this.CaloriesField;
+            }
+            set
+            {
+                this.CaloriesField = value;
             }
         }
         
@@ -156,7 +175,20 @@ namespace WSClient.DataWS
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Height
+        public double Deficit
+        {
+            get
+            {
+                return this.DeficitField;
+            }
+            set
+            {
+                this.DeficitField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Height
         {
             get
             {
@@ -165,19 +197,6 @@ namespace WSClient.DataWS
             set
             {
                 this.HeightField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long IMC
-        {
-            get
-            {
-                return this.IMCField;
-            }
-            set
-            {
-                this.IMCField = value;
             }
         }
         
@@ -195,6 +214,32 @@ namespace WSClient.DataWS
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Imc
+        {
+            get
+            {
+                return this.ImcField;
+            }
+            set
+            {
+                this.ImcField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Superavit
+        {
+            get
+            {
+                return this.SuperavitField;
+            }
+            set
+            {
+                this.SuperavitField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public WSClient.DataWS.User User
         {
             get
@@ -208,7 +253,7 @@ namespace WSClient.DataWS
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Weight
+        public double Weight
         {
             get
             {
