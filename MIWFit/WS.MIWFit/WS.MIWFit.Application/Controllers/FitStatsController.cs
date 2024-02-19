@@ -24,7 +24,7 @@ namespace WS.MIWFit.Application.Controllers
 
         //GET: api/FitStats
         [HttpGet("{user}")]
-        public async Task<ActionResult<IEnumerable<WSClient.DataWS.FitStats>>> GetFitStats([FromRoute] String user)
+        public async Task<ActionResult<IEnumerable<Models.FitStats>>> GetFitStats([FromRoute] String user)
         {
             /**
             var token = Request.Headers["token"];
