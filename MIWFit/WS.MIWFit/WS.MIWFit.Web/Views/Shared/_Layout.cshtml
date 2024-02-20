@@ -25,7 +25,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        @if (@Context.Session.GetString("token") == "")
+                        @if (@Context.Session.GetString("token") == null || @Context.Session.GetString("token") == "")
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="LoginView">Login</a>

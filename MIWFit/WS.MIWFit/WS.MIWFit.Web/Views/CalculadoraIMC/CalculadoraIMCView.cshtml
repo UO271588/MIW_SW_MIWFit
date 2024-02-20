@@ -9,7 +9,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="CalculadoraIMCView">
+        <form asp-action="CalculadoraIMCAction">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="peso" class="control-label">Weight</label>
@@ -23,7 +23,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="actividad" class="control-label">Activity</label>
-                <input asp-for="actividad" class="form-control" />
+                <select asp-for="actividad" class="form-control" >
+                    <option selected="selected" value="Sedentario">Sedentario</option>
+                    <option value="Ligero">Ligero</option>
+                    <option value="Moderado">Moderado</option>
+                    <option value="Activo">Activo</option>
+                    <option value="Muy Activo">Muy Activo</option>
+                </select>
                 <span asp-validation-for="actividad" class="text-danger"></span>
             </div>
             <div class="form-group">

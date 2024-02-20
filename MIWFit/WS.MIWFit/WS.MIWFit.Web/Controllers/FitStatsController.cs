@@ -23,9 +23,10 @@ namespace WS.MIWFit.Web.Controllers
             }
 
             var user = HttpContext.Session.GetString("username");
-            var client = new RestClient(_configuration.GetValue<string>("WebSettings:AppEndPoint"));
+            var client = new RestClient(_configuration.GetValue<string>("WebSettings:AppEndPoint")!);
             var request = new RestRequest("/fitStats/{user}", Method.Get);
             request.RequestFormat = DataFormat.Json;
+            request.AddHeader("token", HttpContext.Session.GetString("token")!);
             request.AddParameter("user", user, ParameterType.UrlSegment);
             var response = await client.ExecuteAsync<List<FitStats>>(request);
             if (!response.IsSuccessful) return BadRequest();

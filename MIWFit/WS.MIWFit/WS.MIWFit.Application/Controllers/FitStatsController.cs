@@ -26,11 +26,10 @@ namespace WS.MIWFit.Application.Controllers
         [HttpGet("{user}")]
         public async Task<ActionResult<IEnumerable<Models.FitStats>>> GetFitStats([FromRoute] String user)
         {
-            /**
+            
             var token = Request.Headers["token"];
             if (String.IsNullOrEmpty(token) || !ValidateToken(token))
                 return Unauthorized();
-            */
 
             DataServicesClient dataClient = new DataServicesClient();
 
@@ -45,19 +44,27 @@ namespace WS.MIWFit.Application.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         public async Task<ActionResult<WSClient.CalculadoraIMCWS.resultadoIMC>> CreateFitStats([FromBody] BasicInfo basicInfo  )
         {
-            /**
+            
             var token = Request.Headers["token"];
             if (String.IsNullOrEmpty(token) || !ValidateToken(token))
                 return Unauthorized();
-            */
+            
+            DataServicesClient dataClient = new DataServicesClient();
+
+            var user = await dataClient.GetUserAsync(basicInfo.username);
+
+            if (user == null) {
+                return BadRequest();
+            }
 
             CalculatorIMCClient calculatorClient = new CalculatorIMCClient();
 
-            var imcResult = await calculatorClient.calcularIMCAsync(basicInfo.peso, basicInfo.altura, basicInfo.sexo, basicInfo.actividad);
+            var imcResult = await calculatorClient.calcularIMCAsync(basicInfo.peso, basicInfo.altura, user.Genre, basicInfo.actividad);
 
             if (imcResult == null) {
                 return BadRequest();
             }
+
             return Ok(imcResult.@return);
         }
 

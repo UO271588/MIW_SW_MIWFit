@@ -15,13 +15,6 @@ namespace WS.MIWFit.Application.Controllers
         [Produces(MediaTypeNames.Application.Json)]
         public async Task<IActionResult> CreateUser([FromBody] User user)
         {
-
-            /**
-            var token = Request.Headers["token"];
-            if (String.IsNullOrEmpty(token) || !ValidateToken(token))
-                return Unauthorized();
-            */
-
             try
             {
                 DataServicesClient dataClient = new DataServicesClient();
