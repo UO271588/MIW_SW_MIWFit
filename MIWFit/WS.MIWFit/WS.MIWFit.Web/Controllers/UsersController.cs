@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using NuGet.Common;
 using RestSharp;
 using WS.MIWFit.Web.Models;
 
@@ -16,15 +17,26 @@ namespace WS.MIWFit.Web.Controllers
 
         public IActionResult LoginView()
         {
+            if (HttpContext.Session.GetString("token") != null && HttpContext.Session.GetString("token") != String.Empty) {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
         public IActionResult RegisterView()
         {
+            if (HttpContext.Session.GetString("token") != null && HttpContext.Session.GetString("token") != String.Empty)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
         public async Task<IActionResult> LoginAction() {
+            if (HttpContext.Session.GetString("token") != null && HttpContext.Session.GetString("token") != String.Empty)
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
             User user = new User();
             user.Username = Request.Form["Username"].ToString();
@@ -37,16 +49,23 @@ namespace WS.MIWFit.Web.Controllers
             request.AddJsonBody(new { Username = user.Username, Password = user.Password });
             var response = await client.ExecuteAsync(request);
             if (!(response).IsSuccessful)
-                return BadRequest();
+                return RedirectToAction("LoginView");
             var token = JsonConvert.DeserializeAnonymousType(
                 response.Content,
                 new { Token = "" });
             Console.Out.WriteLine(token);
-            return RedirectToAction("LoginView");
+            HttpContext.Session.SetString("token",token.Token);
+            HttpContext.Session.SetString("username", user.Username);
+
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult RegisterAction()
         {
+            if (HttpContext.Session.GetString("token") != null && HttpContext.Session.GetString("token") != String.Empty)
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
             User user = new User();
 
@@ -62,6 +81,12 @@ namespace WS.MIWFit.Web.Controllers
             var request = new RestRequest("/users/register", Method.Post);
 
             return RedirectToAction("LoginView");
+        }
+
+        public IActionResult LogoutAction() {
+            HttpContext.Session.SetString("token", String.Empty);
+            HttpContext.Session.SetString("username", String.Empty);
+            return View("LoginView");
         }
     }
 }

@@ -1,0 +1,72 @@
+﻿@model WS.MIWFit.Web.Models.ResultadoIMC
+
+@{
+    ViewData["Title"] = "ResultadoIMCView";
+}
+
+<h1>ResultadoIMCView</h1>
+
+<div>
+    <h4>ResultadoIMC</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Peso)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Peso)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Altura)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Altura)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sexo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sexo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Actividad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Actividad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PesoIdeal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PesoIdeal)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Calorias)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Calorias)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Superavit)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Superavit)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Deficit)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Deficit)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

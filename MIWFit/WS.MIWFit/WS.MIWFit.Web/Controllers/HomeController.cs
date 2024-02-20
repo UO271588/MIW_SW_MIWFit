@@ -15,11 +15,19 @@ namespace WS.Unit09.Example4.Web.Controllers
 
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("token") == String.Empty)
+            {
+                return RedirectToAction("LoginView", "Users");
+            }
             return View();
         }
 
         public IActionResult Privacy()
         {
+            if (HttpContext.Session.GetString("token") == String.Empty)
+            {
+                return RedirectToAction("LoginView", "Users");
+            }
             return View();
         }
 
