@@ -30,7 +30,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Superavit)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -43,10 +42,10 @@
                 @Html.DisplayFor(modelItem => item.Height)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Calories)
+                @Html.ActionLink(Math.Round(item.Calories) + "", "FoodExamples", "Foods", new { calories = Math.Round(item.Calories) })
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Deficit)
+                @Html.ActionLink(Math.Round(item.Deficit) + "", "FoodExamples", "Foods", new { calories = Math.Round(item.Deficit) })
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Imc)
@@ -55,12 +54,7 @@
                 @Html.DisplayFor(modelItem => item.Weight)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Superavit)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink(Math.Round(item.Superavit) + "", "FoodExamples", "Foods", new { calories = Math.Round(item.Superavit) })
             </td>
         </tr>
 }

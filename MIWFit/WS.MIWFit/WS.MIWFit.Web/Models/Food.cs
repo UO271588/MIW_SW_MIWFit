@@ -1,4 +1,4 @@
-﻿namespace WS.MIWFit.Application.Models
+﻿namespace WS.MIWFit.Web.Models
 {
     public class Food
     {

@@ -65,6 +65,27 @@ namespace WS.MIWFit.Application.Controllers
                 return BadRequest();
             }
 
+            WSClient.DataWS.FitStats fitStats = new WSClient.DataWS.FitStats();
+
+            fitStats.Date = DateTime.Now;
+            fitStats.Deficit = imcResult.@return.deficit;
+            fitStats.Activity = imcResult.@return.actividad;
+            fitStats.Superavit = imcResult.@return.superavit;
+            fitStats.Imc = imcResult.@return.imc;
+            fitStats.Height = imcResult.@return.altura;
+            fitStats.Weight = imcResult.@return.peso;
+            fitStats.User = user;
+            fitStats.Calories = imcResult.@return.calorias;
+
+            try
+            {
+                await dataClient.CreateUserFitStatsAsync(fitStats);
+            }catch (Exception ex)
+            {
+                return BadRequest();
+            }
+            
+
             return Ok(imcResult.@return);
         }
 

@@ -1,7 +1,7 @@
 {
   "ExtendedData": {
     "inputs": [
-      "http://localhost:8080/ws.miwfit.calculadoraIMC/soapws/calculatorIMC?wsdl"
+      "http://localhost:8080/ws.miwfit.calculadoraimc/soapws/calculatorIMC?wsdl"
     ],
     "collectionTypes": [
       "System.Array",

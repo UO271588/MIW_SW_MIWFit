@@ -74,12 +74,40 @@ namespace WSClient.FoodWS
     public partial class food
     {
         
+        private double azucaresField;
+        
         private double caloriesField;
+        
+        private string comidaField;
+        
+        private string flickrnameField;
+        
+        private double gramosField;
+        
+        private double gramosPorRacionField;
+        
+        private double grasasField;
         
         private string nameField;
         
+        private double proteinaField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public double azucares
+        {
+            get
+            {
+                return this.azucaresField;
+            }
+            set
+            {
+                this.azucaresField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
         public double calories
         {
             get
@@ -93,7 +121,77 @@ namespace WSClient.FoodWS
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string comida
+        {
+            get
+            {
+                return this.comidaField;
+            }
+            set
+            {
+                this.comidaField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string flickrname
+        {
+            get
+            {
+                return this.flickrnameField;
+            }
+            set
+            {
+                this.flickrnameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public double gramos
+        {
+            get
+            {
+                return this.gramosField;
+            }
+            set
+            {
+                this.gramosField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public double gramosPorRacion
+        {
+            get
+            {
+                return this.gramosPorRacionField;
+            }
+            set
+            {
+                this.gramosPorRacionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public double grasas
+        {
+            get
+            {
+                return this.grasasField;
+            }
+            set
+            {
+                this.grasasField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
         public string name
         {
             get
@@ -103,6 +201,20 @@ namespace WSClient.FoodWS
             set
             {
                 this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public double proteina
+        {
+            get
+            {
+                return this.proteinaField;
+            }
+            set
+            {
+                this.proteinaField = value;
             }
         }
     }

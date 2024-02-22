@@ -379,7 +379,7 @@ namespace WSClient.CalculadoraIMCWS
         {
             if ((endpointConfiguration == EndpointConfiguration.CalculatorIMCPort))
             {
-                return new System.ServiceModel.EndpointAddress("http://localhost:8080/ws.miwfit.calculadoraIMC/soapws/calculatorIMC");
+                return new System.ServiceModel.EndpointAddress("http://localhost:8080/ws.miwfit.calculadoraimc/soapws/calculatorIMC");
             }
             throw new System.InvalidOperationException(string.Format("No se pudo encontrar un punto de conexión con el nombre \"{0}\".", endpointConfiguration));
         }

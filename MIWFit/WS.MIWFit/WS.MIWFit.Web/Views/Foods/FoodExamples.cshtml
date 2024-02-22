@@ -1,0 +1,26 @@
+﻿@model IEnumerable<WS.MIWFit.Web.Models.Food>
+
+@{
+    ViewData["Title"] = "FoodExamples";
+}
+
+<h1>Ejemplos de Comidas</h1>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var item in Model) {
+    <div class="col">
+        <div class="card w-100">
+            <img src=@Html.DisplayFor(modelItem => item.Url) class="card-img-top" alt="Imagen Comida">
+            <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name) (Porción:@Html.DisplayFor(modelItem => item.GramosPorRacion)g)</h5>
+                    <p class="card-text">@Html.DisplayNameFor(model => model.Calories): @Html.DisplayFor(modelItem => item.Calories)</p>
+                    <p class="card-text">@Html.DisplayNameFor(model => model.Proteina): @Html.DisplayFor(modelItem => item.Proteina) g</p>
+                    <p class="card-text">@Html.DisplayNameFor(model => model.Grasas): @Html.DisplayFor(modelItem => item.Grasas) g</p>
+                    <p class="card-text">@Html.DisplayNameFor(model => model.Azucares): @Html.DisplayFor(modelItem => item.Azucares) g</p>
+                    <p class="card-text text-capitalize">@Html.DisplayNameFor(model => model.Comida): @Html.DisplayFor(modelItem => item.Comida)</p>
+                    <p class="card-text">Cantidad: @Html.DisplayFor(modelItem => item.Gramos)g</p>
+            </div>
+        </div>
+    </div>
+    }
+</div>
