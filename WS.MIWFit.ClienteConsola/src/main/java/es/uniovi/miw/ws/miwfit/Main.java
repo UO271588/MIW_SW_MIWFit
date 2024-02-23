@@ -29,7 +29,7 @@ public class Main {
                 user.setUsername(username);
                 user.setPassword(password);
                 Response response = ClientBuilder.newClient().
-                        target("http://localhost:9081/api").
+                        target("http://156.35.98.167:443/api").
                         path("login").
                         request(MediaType.APPLICATION_JSON).
                         post(Entity.entity(user, MediaType.APPLICATION_JSON));
@@ -68,7 +68,7 @@ public class Main {
                                     datosIMC.setSexo(sexo);
                                     datosIMC.setActividad(actividad);
                                     Response response = ClientBuilder.newClient().
-                                            target("http://localhost:9081/api").
+                                            target("http://156.35.98.167:443/api").
                                             path("fitStats").
                                             request(MediaType.APPLICATION_JSON).
                                             header("token",token).
@@ -82,7 +82,7 @@ public class Main {
                         break;
                     case "2":
                         Response response = ClientBuilder.newClient().
-                                target("http://localhost:9081/api").
+                                target("http://156.35.98.167:443/api").
                                 path("fitStats/"+username).
                                 request(MediaType.APPLICATION_JSON).
                                 header("token",token).
