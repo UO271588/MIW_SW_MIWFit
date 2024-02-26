@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using NuGet.Common;
 using RestSharp;
@@ -42,7 +43,10 @@ namespace WS.MIWFit.Web.Controllers
             user.Username = Request.Form["Username"].ToString();
             user.Password = Request.Form["Password"].ToString();
 
-            var client = new RestClient(_configuration.GetValue<string>("WebSettings:AppEndPoint"));
+            var options = new RestClientOptions(_configuration.GetValue<string>("WebSettings:AppEndPoint"));
+            options.RemoteCertificateValidationCallback =
+                                 (sender, certificate, chain, sslPolicyErrors) => true;
+            var client = new RestClient(options);
             var request = new RestRequest("/login", Method.Post);
 
             request.RequestFormat = DataFormat.Json;
@@ -60,7 +64,7 @@ namespace WS.MIWFit.Web.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult RegisterAction()
+        public async Task<IActionResult> RegisterAction()
         {
             if (HttpContext.Session.GetString("token") != null && HttpContext.Session.GetString("token") != String.Empty)
             {
@@ -71,15 +75,23 @@ namespace WS.MIWFit.Web.Controllers
 
             user.Username = Request.Form["Username"].ToString();
             user.Password = Request.Form["Password"].ToString();
-            user.Email = Request.Form["Email"].ToString();
+            user.Mail = Request.Form["Mail"].ToString();
             user.Genre = Request.Form["Genre"].ToString();
 
             Console.Out.WriteLine(user.Username);
             Console.Out.WriteLine(user.Password);
 
-            var client = new RestClient(_configuration.GetValue<string>("WebSettings:AppEndPoint"));
-            var request = new RestRequest("/users/register", Method.Post);
+            var options = new RestClientOptions(_configuration.GetValue<string>("WebSettings:AppEndPoint"));
+            options.RemoteCertificateValidationCallback =
+                                 (sender, certificate, chain, sslPolicyErrors) => true;
+            var client = new RestClient(options);
+            var request = new RestRequest("/users", Method.Post);
 
+            request.RequestFormat = DataFormat.Json;
+            request.AddJsonBody(user);
+            var response = await client.ExecuteAsync(request);
+            if (!(response).IsSuccessful)
+                return RedirectToAction("RegisterView");
             return RedirectToAction("LoginView");
         }
 

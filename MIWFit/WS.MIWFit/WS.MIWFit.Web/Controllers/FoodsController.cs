@@ -22,7 +22,10 @@ namespace WS.MIWFit.Web.Controllers
                 return RedirectToAction("LoginView", "Users");
             }
 
-            var client = new RestClient(_configuration.GetValue<string>("WebSettings:AppEndPoint"));
+            var options = new RestClientOptions(_configuration.GetValue<string>("WebSettings:AppEndPoint"));
+            options.RemoteCertificateValidationCallback =
+                                 (sender, certificate, chain, sslPolicyErrors) => true;
+            var client = new RestClient(options);
             var request = new RestRequest("/foods", Method.Get);
 
             request.RequestFormat = DataFormat.Json;

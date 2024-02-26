@@ -23,7 +23,10 @@ namespace WS.MIWFit.Web.Controllers
             }
 
             var user = HttpContext.Session.GetString("username");
-            var client = new RestClient(_configuration.GetValue<string>("WebSettings:AppEndPoint")!);
+            var options = new RestClientOptions(_configuration.GetValue<string>("WebSettings:AppEndPoint"));
+            options.RemoteCertificateValidationCallback =
+                                 (sender, certificate, chain, sslPolicyErrors) => true;
+            var client = new RestClient(options);
             var request = new RestRequest("/fitStats/{user}", Method.Get);
             request.RequestFormat = DataFormat.Json;
             request.AddHeader("token", HttpContext.Session.GetString("token")!);

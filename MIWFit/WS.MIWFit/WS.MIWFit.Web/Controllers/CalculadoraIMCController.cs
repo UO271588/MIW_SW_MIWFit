@@ -41,7 +41,10 @@ namespace WS.MIWFit.Web.Controllers
             basicInfo.altura = double.Parse(Request.Form["altura"].ToString());
             basicInfo.username = HttpContext.Session.GetString("username")!;
 
-            var client = new RestClient(_configuration.GetValue<string>("WebSettings:AppEndPoint"));
+            var options = new RestClientOptions(_configuration.GetValue<string>("WebSettings:AppEndPoint"));
+            options.RemoteCertificateValidationCallback =
+                                 (sender, certificate, chain, sslPolicyErrors) => true;
+            var client = new RestClient(options);
             var request = new RestRequest("/fitStats", Method.Post);
 
             request.RequestFormat = DataFormat.Json;
